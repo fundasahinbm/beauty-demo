@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eylül Beauty Studio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #fffaf8;
+      color: #2d2a28;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f7e5df 0%, #f3d6cf 50%, #f8efe9 100%);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1150px;
+      width: 100%;
+      margin: 0 auto 60px auto;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: #2d2a28;
+      color: white;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #2d2a28;
+      color: #2d2a28;
+    }
+
+    .hero-inner {
+      max-width: 1150px;
+      width: 100%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 58px;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .hero-text p {
+      font-size: 20px;
+      max-width: 560px;
+      margin-bottom: 28px;
+      color: #534e4a;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    }
+
+    .hero-card img {
+      width: 100%;
+      border-radius: 22px;
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .hero-card h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      color: #5d5753;
+    }
+
+    .section {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #6b635e;
+      max-width: 700px;
+      margin: 0 auto 42px auto;
+      font-size: 18px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 28px;
+      border-radius: 24px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+      border: 1px solid #f2e4de;
+    }
+
+    .service-card h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .service-card p {
+      color: #665f5b;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #f8ede8;
+      font-size: 14px;
+      color: #7a6459;
+      font-weight: 600;
+    }
+
+    .about-box {
+      background: #fff;
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.05);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-box img {
+      width: 100%;
+      border-radius: 24px;
+      display: block;
+    }
+
+    .about-box h3 {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .about-box p {
+      color: #5e5854;
+      margin-bottom: 16px;
+      font-size: 17px;
+    }
+
+    .contact {
+      background: #2d2a28;
+      color: white;
+      border-radius: 30px;
+      padding: 50px 28px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .contact p {
+      color: #ddd5d1;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .contact .btn {
+      margin-top: 20px;
+      background: #25D366;
+      color: white;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #8a827c;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .about-box,
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 34px;
+      }
+
+      .hero-text p {
+        font-size: 17px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .about-box {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="logo">Eylül Beauty</div>
+      <div class="nav-links">
+        <a href="#services">Hizmetler</a>
+        <a href="#about">Hakkımızda</a>
+        <a href="#contact" class="btn">Randevu Al</a>
+      </div>
+    </nav>
+
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Doğal güzelliğini ortaya çıkaran profesyonel bakım.</h1>
+        <p>
+          Cilt bakımı, profesyonel makyaj ve kişisel bakım hizmetleri için
+          premium görünümlü, mobil uyumlu bir güzellik merkezi web sitesi örneği.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn">Hizmetleri Gör</a>
+          <a href="#contact" class="btn btn-outline">İletişime Geç</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80" alt="Beauty salon" />
+        <h3>Işıltını öne çıkar.</h3>
+        <p>Profesyonel dokunuş, temiz tasarım ve güven veren sunum bir arada.</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="services" class="section">
+    <h2 class="section-title">Hizmetlerimiz</h2>
+    <p class="section-subtitle">
+      Küçük işletmelerin en çok ihtiyaç duyduğu şey: sade, şık ve güven veren bir dijital vitrin.
+    </p>
+
+    <div class="services">
+      <div class="service-card">
+        <h3>Cilt Bakımı</h3>
+        <p>Canlı ve sağlıklı bir görünüm için profesyonel bakım uygulamaları.</p>
+        <span class="tag">Parlayan cilt</span>
+      </div>
+
+      <div class="service-card">
+        <h3>Profesyonel Makyaj</h3>
+        <p>Özel günler, etkinlikler ve günlük şıklık için kişiye özel makyaj hizmeti.</p>
+        <span class="tag">Premium görünüm</span>
+      </div>
+      <div class="service-card">
+      <h3>Kaş Tasarımı</h3>
+      <p>Yüz hatlarına uygun profesyonel kaş şekillendirme.</p>
+      <span class="tag">Temiz görünüm</span>
+    </div>
+
+
+      <div class="service-card">
+        <h3>Lazer & Kişisel Bakım</h3>
+        <p>Modern cihazlar ve konforlu ortam ile düzenli bakım deneyimi.</p>
+        <span class="tag">Konforlu süreç</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="about-box">
+      <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80" alt="Beauty care" />
+      <div>
+        <h3>Markanı güçlü gösteren dijital vitrin.</h3>
+        <p>
+          Bu demo, güzellik merkezleri, nail studio, cilt bakım salonları ve estetik
+          hizmet veren küçük işletmeler için hazırlanmış örnek bir landing page tasarımıdır.
+        </p>
+        <p>
+          Amaç basit: ilk bakışta güven vermek, mobilde güzel görünmek ve müşteriyi
+          WhatsApp ya da randevu butonuna götürmek.
+        </p>
+        <a href="#contact" class="btn">Bize Ulaşın</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="contact">
+      <h2>İletişim</h2>
+      <p>WhatsApp: +90 555 555 55 55</p>
+      <p>Instagram: @eylulbeauty</p>
+      <p>Ankara, Türkiye</p>
+      <a class="btn" href="https://wa.me/905555555555" target="_blank">WhatsApp'tan Yaz</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 Eylül Beauty Studio — Demo Site
+  </footer>
+</body>
+</html>
